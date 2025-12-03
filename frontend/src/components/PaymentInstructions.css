@@ -1,0 +1,125 @@
+.payment-instructions-container {
+    margin: 2rem 0;
+}
+
+.payment-instructions {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border-left: 5px solid var(--primary-color);
+}
+
+.payment-instructions h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.bank-details-grid {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    margin: 1.5rem 0;
+}
+
+.bank-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.bank-detail-item:last-child {
+    border-bottom: none;
+}
+
+.bank-detail-item.important {
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: var(--border-radius-sm);
+    margin-top: 0.5rem;
+    border: none;
+}
+
+.bank-detail-item .label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.bank-detail-item .value {
+    font-weight: 500;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copy-btn {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all var(--transition-base);
+}
+
+.copy-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.cash-send-options {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.cash-send-options li {
+    background: var(--bg-primary);
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius-sm);
+    border-left: 3px solid var(--primary-color);
+}
+
+.important-note {
+    background: #fff3cd;
+    border-left: 4px solid var(--warning-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    margin-top: 1.5rem;
+}
+
+.important-note p {
+    margin-bottom: 0.5rem;
+    color: #856404;
+}
+
+.important-note p:last-child {
+    margin-bottom: 0;
+}
+
+.important-note a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.important-note a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .bank-detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .cash-send-options {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,151 @@
+.booking-form-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.form-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.booking-form {
+    background: var(--bg-primary);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.form-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-info {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    margin-top: 1rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.service-info p {
+    margin-bottom: 0.5rem;
+}
+
+.btn-large {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+/* Success Page */
+.booking-success {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.booking-success h2 {
+    color: var(--success-color);
+    margin-bottom: 2rem;
+}
+
+.success-details {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.success-details p {
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.success-message {
+    background: #d4edda;
+    border: 2px solid var(--success-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    margin: 2rem 0;
+}
+
+.success-message p {
+    margin-bottom: 0.5rem;
+    color: #155724;
+}
+
+@media (max-width: 768px) {
+    .booking-form-container {
+        padding: 1rem;
+    }
+
+    .booking-form {
+        padding: 1.5rem;
+    }
+
+    .form-header h1 {
+        font-size: 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
