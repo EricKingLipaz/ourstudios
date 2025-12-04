@@ -1,9 +1,38 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import BookingForm from './components/BookingForm';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminLogin from './pages/admin/AdminLogin';
 import './App.css';
 
 function App() {
+    const [adminUser, setAdminUser] = useState(null);
+
+    // Check if user is already logged in
+    useEffect(() => {
+        const storedUser = localStorage.getItem('admin_user');
+        if (storedUser) {
+            setAdminUser(JSON.parse(storedUser));
+        }
+    }, []);
+
+    const handleLogin = (user) => {
+        setAdminUser(user);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('admin_user');
+        setAdminUser(null);
+    };
+
+    // Protected Route wrapper
+    const ProtectedRoute = ({ children }) => {
+        if (!adminUser) {
+            return <Navigate to="/admin/login" replace />;
+        }
+        return children;
+    };
+
     return (
         <Router>
             <div className="app">
@@ -17,7 +46,11 @@ function App() {
                             </Link>
                             <div className="nav-links">
                                 <Link to="/" className="nav-link">Book Now</Link>
-                                <Link to="/admin" className="nav-link admin-link">Admin</Link>
+                                {adminUser && (
+                                    <button onClick={handleLogout} className="nav-link logout-btn">
+                                        Logout
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -27,7 +60,15 @@ function App() {
                 <main className="main-content">
                     <Routes>
                         <Route path="/" element={<BookingForm />} />
-                        <Route path="/admin" element={<AdminDashboard />} />
+                        <Route path="/admin/login" element={<AdminLogin onLogin={handleLogin} />} />
+                        <Route
+                            path="/admin"
+                            element={
+                                <ProtectedRoute>
+                                    <AdminDashboard onLogout={handleLogout} adminUser={adminUser} />
+                                </ProtectedRoute>
+                            }
+                        />
                     </Routes>
                 </main>
 
@@ -44,3 +85,4 @@ function App() {
 }
 
 export default App;
+

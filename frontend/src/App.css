@@ -88,6 +88,17 @@
     background: rgba(255, 255, 255, 0.3);
 }
 
+.logout-btn {
+    background: rgba(255, 59, 48, 0.2);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 59, 48, 0.4);
+}
+
 /* Main Content */
 .main-content {
     flex: 1;
